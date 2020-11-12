@@ -1,0 +1,85 @@
+﻿@model HighWayCodeTraining.Models.Question
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Question</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tag)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tag)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Image.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image.File)
+        </dt>
+        <dd class="col-sm-10">
+            <img src ="@("~/image/"+ Model.Image.Name)" asp-append-version="true" width= "100px" height= "100px">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Options)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Options)
+            @Model.Options
+
+
+        </dd>
+
+        @for (int i = 0; i < 4; i++)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Options)
+            </dt>
+            <dd class="col-sm-10">
+
+                @Html.DisplayFor(model => model.Options[i].Id)
+                @Html.DisplayFor(model => model.Options[i].Value)
+                @Html.DisplayFor(model => model.Options[i].State)
+
+            </dd>
+
+        }
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Correction)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Correction)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

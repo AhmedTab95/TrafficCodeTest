@@ -1,0 +1,76 @@
+﻿@model HighWayCodeTraining.Models.Question
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Question</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title)
+                @Html.TextBoxFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+            <div class="form-group">
+                <label asp-for="Image.File" class="control-label"></label>
+                <input asp-for="Image.File" name="Image.File" accept="image/jpeg,image/png,video/mp4,video/avi,video/flv" /><br />
+                <span asp-validation-for="Image.File" class="text-danger">/!\ Please add a file</span>
+            </div>
+           
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tag)
+                @Html.TextBoxFor(model => model.Tag)
+                @Html.ValidationMessageFor(model => model.Tag)
+            </div>
+
+            <table>
+                <tr>
+                    @for (int i = 0; i < 2; i++)
+                    {
+                        <td>
+                            @Html.LabelFor(model => model.Options[i].Value)
+                            @Html.TextAreaFor(model => model.Options[i].Value)
+                            @Html.LabelFor(model => model.Options[i].State, "Check it if it is the good answer")
+                            @Html.CheckBoxFor(model => model.Options[i].State, true)
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    @for (int i = 2; i < 4; i++)
+                    {
+                        <td>
+                            @Html.LabelFor(model => model.Options[i].Value)
+                            @Html.TextAreaFor(model => model.Options[i].Value)
+                            @Html.LabelFor(model => model.Options[i].State, "Check it if it is the good answer")
+                            @Html.CheckBoxFor(model => model.Options[i].State, true)
+                        </td>
+                    }
+                </tr>
+                @Html.ValidationMessageFor(model => model.Options)
+            </table>
+
+            <div>
+                @Html.LabelFor(model => model.Correction) <br />
+                @Html.TextAreaFor(model => model.Correction)
+                @Html.ValidationMessageFor(model => model.Correction)
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" /> 
+                <a asp-action="Index" class="btn btn-primary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
