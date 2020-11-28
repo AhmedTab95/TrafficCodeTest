@@ -34,8 +34,8 @@
                     @for (int i = 0; i < 2; i++)
                     {
                         <td>
-                            @Html.LabelFor(model => model.Options[i].Value)
-                            @Html.TextAreaFor(model => model.Options[i].Value)
+                            @Html.LabelFor(model => model.Options[i].Proposition)
+                            @Html.TextAreaFor(model => model.Options[i].Proposition)
                             @Html.LabelFor(model => model.Options[i].State, "Check it if it is the good answer")
                             @Html.CheckBoxFor(model => model.Options[i].State, true)
                         </td>
@@ -45,8 +45,8 @@
                     @for (int i = 2; i < 4; i++)
                     {
                         <td>
-                            @Html.LabelFor(model => model.Options[i].Value)
-                            @Html.TextAreaFor(model => model.Options[i].Value)
+                            @Html.LabelFor(model => model.Options[i].Proposition)
+                            @Html.TextAreaFor(model => model.Options[i].Proposition)
                             @Html.LabelFor(model => model.Options[i].State, "Check it if it is the good answer")
                             @Html.CheckBoxFor(model => model.Options[i].State, true)
                         </td>

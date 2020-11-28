@@ -47,14 +47,15 @@ namespace HighWayCodeTraining.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Proposition")
+                        .HasColumnType("varchar(250)")
+                        .HasMaxLength(250);
+
                     b.Property<int>("QuestionId")
                         .HasColumnType("int");
 
                     b.Property<bool>("State")
                         .HasColumnType("bit");
-
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -72,18 +73,21 @@ namespace HighWayCodeTraining.Migrations
 
                     b.Property<string>("Correction")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(500)")
+                        .HasMaxLength(500);
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Tag")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(250)")
+                        .HasMaxLength(250);
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(250)")
+                        .HasMaxLength(250);
 
                     b.HasKey("Id");
 
@@ -99,14 +103,18 @@ namespace HighWayCodeTraining.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(75)")
+                        .HasMaxLength(75);
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(75)")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
